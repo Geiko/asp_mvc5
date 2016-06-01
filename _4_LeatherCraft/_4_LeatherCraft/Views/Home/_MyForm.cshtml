@@ -1,0 +1,38 @@
+﻿@model _4_LeatherCraft.Models.Visitor
+
+<div class="myFormContainer">
+
+    @using ( Html.BeginForm ( "Contact", "Home" ) )
+    {
+        @Html.ValidationSummary( true )
+
+        <h1 class="text-center">Sign up</h1>
+        @:Your First Name:<br />
+        @Html.TextBoxFor( Model => Model.FirstName )
+        @Html.ValidationMessageFor( Model => Model.FirstName )
+        <br /><br />
+
+        @:Your Last Name:<br />
+        @Html.TextBoxFor( model => model.LastName )
+        @Html.ValidationMessageFor(model => model.LastName)
+        <br /><br />
+
+        @:Your Age:<br />
+        @Html.TextBoxFor( model => model.Age )
+        @Html.ValidationMessageFor( model => model.Age )
+        <br /><br />
+
+        @:Your Email:<br />
+        @Html.TextBoxFor( model => model.Email )
+        @Html.ValidationMessageFor( model => model.Email )
+        <br /><br />
+
+        @:Your Phone:<br />
+        @Html.TextBoxFor( model => model.Phone )
+        @Html.ValidationMessageFor( model => model.Phone )
+        <br /><br /><br />
+
+        <input type = "submit" value = "Submit Your Data" class="btn btn-primary" />
+    }
+
+</div>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="row">
+    <div class="col-md-5">
+        @Html.Partial( "_Address" )
+    </div>
+    <div class="col-md-5 col-md-offset-2 form1">
+        @Html.Partial( "_MyForm" )
+    </div>
+</div>
+
+<script>
+    $("#liHome").removeClass();
+    $("#liAbout").removeClass();
+    $("#liContact").removeClass();
+    $("#liContact").addClass("active");
+</script>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<_6_Music.Models.Purchase>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            Artist
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.Disk.Title )
+        </th>
+        <th>Pic</th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Disk.Artist.Name
+        </td>
+        <td>
+            @Html.DisplayFor( modelItem => item.Disk.Title )
+        </td>
+        <td>
+            <a href='@Url.Action( "Index", "Disks" )'>
+                <img alt="Cover" src="@item.Disk.DiskUrl" width="50" height="50" />
+            </a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

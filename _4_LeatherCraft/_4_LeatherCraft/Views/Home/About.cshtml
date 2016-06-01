@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<h2 class="text-center">All Leather Goods</h2>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-bordered table-hover text-center">
+            <tr class="cell-upper">
+                <td>#</td>
+                <td>Nomination</td>
+                <td>Article</td>
+                <td>Price</td>
+                <td></td>
+            </tr>
+            @foreach ( var item in ViewBag.LeatherItems )
+            {
+                <tr class="cell">
+                    <td>@item.Id</td>
+                    <td>@item.Nomination</td>
+                    <td>@item.Article</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <a href="#" class="btn btn-success">BUY</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.ActionLink( "Download info (File)", "DownloadFile", "About", new { id="downloadFile"} )<br />
+        @Html.ActionLink( "Download info (Bytes)", "DownloadBytes", "About", new { id = "downloadBytes" } )<br />
+        @Html.ActionLink( "Download info (Stream)","DownloadStream", "About", new { id = "downloadStream" } )<br />
+    </div>
+</div>
+
+
+<script>
+    $("#liHome").removeClass();
+    $("#liAbout").removeClass();
+    $("#liContact").removeClass();
+    $("#liAbout").addClass("active");
+
+    $("#downloadFile").addClass("btn btn-primary");
+    $("#downloadBytes").addClass("btn btn-primary");
+    $("#downloadStream").addClass("btn btn-primary");
+</script>

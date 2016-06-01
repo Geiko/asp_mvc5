@@ -1,0 +1,44 @@
+body{
+    padding-top: 5px;
+}
+.body1{
+    background-color:#e4a0d4;
+}.body3{
+    background-color:#4ef8ae;
+}.body2{
+    background-color:#bbbab5;
+}
+.company {
+    font-size: 30px;
+    font-weight: bold;
+}
+.jumbotron{
+    margin-top: 150px;
+}
+.form1{
+    margin-top: 70px;
+    background: #047c47;
+    padding-left: 30px;
+    color: white;
+    border-radius:5px;
+    border: 3px solid white;
+}
+.input{
+    width: 250px;
+    color: black;
+}
+.string{
+    margin: 20px 0;
+}
+.questions {
+    width: 480px;
+    height: 100px;
+    color: black;
+}
+.btn{
+    margin: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}

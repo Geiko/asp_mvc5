@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<h2 class="text-center">All Goods</h2>
+<table class="table table-bordered table-hover text-center">
+    <tr class="danger">
+        <td>#</td>
+        <td>Nomination</td>
+        <td>Article</td>
+        <td>Price</td>
+        <td></td>
+    </tr>
+    @foreach ( var item in ViewBag.LeatherItems )
+    {
+        <tr class="success">
+            <td>@item.Id</td>
+            <td>@item.Nomination</td>
+            <td>@item.Article</td>
+            <td>@item.Price</td>
+            <td>
+                <a href="#" class="btn btn-success">BUY</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+<script>
+    $("#liHome").removeClass();
+    $("#liAbout").addClass("active");
+    $("#liContact").removeClass();
+</script>

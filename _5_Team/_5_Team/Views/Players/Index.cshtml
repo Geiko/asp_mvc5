@@ -1,0 +1,140 @@
+﻿@model IEnumerable<_5_Team.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Players</h2>
+
+<p>
+    @Html.ActionLink("Create New Player", "Create")
+</p>
+
+@{
+    _5_Team.Models.PlayerSortInfo info = ViewBag.SortingInfo;
+}
+
+<form method="get">
+
+    @Html.Hidden( "SortField", info.SortField )
+
+    <table class="table table-bordered table-hover tabl">
+        <tr class="danger text-center">
+            <th>
+                <a href="#" data-sortfield="TeamName" class="header">
+                    @Html.DisplayNameFor( model => model.Team.Name )
+                </a>
+            </th>
+            <th>
+                <a href="#" data-sortfield="FirstName" class="header">
+                    @Html.DisplayNameFor( model => model.FirstName )
+                </a>
+            </th>
+            <th>
+                <a href="#" data-sortfield="LastName" class="header">
+                    @Html.DisplayNameFor( model => model.LastName )
+                </a>
+            </th>
+            <th>
+                <a href="#" data-sortfield="Position" class="header">
+                    @Html.DisplayNameFor( model => model.Position )
+                </a>
+            </th>
+            <th>
+                <a href="#" data-sortfield="Birthday" class="header">
+                    @Html.DisplayNameFor( model => model.Birthday )
+                </a>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach ( var item in Model )
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor( modelItem => item.Team.Name )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.FirstName )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.LastName )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.Position )
+                </td>
+                <td>
+                    @Html.DisplayFor( modelItem => item.Birthday )
+                </td>
+                <td>
+                    @Html.ActionLink( "Edit", "Edit", new { id = item.Id } ) |
+                    @Html.ActionLink( "Details", "Details", new { id = item.Id } ) |
+                    @Html.ActionLink( "Delete", "Delete", new { id = item.Id } )
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+    <div class="form-inline">
+
+        <div class="form-group">
+            <label>Team</label>
+
+            @*@Html.DropDownList( "team", ViewBag.Teams as SelectList, htmlAttributes: new { @class = "form-control" } )*@
+
+            <select id="Team" name="Team">
+                @foreach ( var team in ViewBag.Teams )
+                {
+                    <option value="@team.Id">
+                        @team.Name
+                    </option>
+                }
+            </select>
+        </div>&nbsp;&nbsp;&nbsp;
+
+        <div class="form-group">
+            <label>Position</label>
+
+            @Html.DropDownList( "position", ViewBag.Positions as SelectList, htmlAttributes: new { @class = "form-control" } )
+
+            @*<select id="Position" name="Position">
+                    @foreach ( var pos in ViewBag.Positions )
+                    {
+                        <option value="@pos">
+                            @pos
+                        </option>
+                    }
+                </select>*@
+        </div>&nbsp;&nbsp;&nbsp;
+
+
+
+        <div class="form-group">
+            <label></label> <br />
+            <input type="submit" class="btn btn-default" value="Apply this Filter" />
+        </div>
+
+    </div>
+</form>
+<p style="color:red">
+    * sort players with clicking on column title
+</p>
+
+<script>
+   
+    $(document).ready(function () {
+        $(".header").click(function (evt) {
+            var sortfield = $(evt.target).data("sortfield");
+            if ($("#SortField").val() != sortfield) {
+                $("#SortField").val(sortfield);            }
+            evt.preventDefault();
+            $("form").submit();
+        });
+    });
+
+</script>
+
+@*http://www.codeguru.com/csharp/.net/net_asp/mvc/implementing-sorting-and-paging-in-asp.net-mvc.html*@

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="row">
+
+    <div class="col-md-4 col-md-offset-4">
+        @Html.Partial("_Address")
+    </div>
+    
+</div>
+
+
+    <script>
+        $("#liHome").removeClass();
+        $("#liAbout").removeClass();
+        $("#liContact").addClass("active");
+    </script>
